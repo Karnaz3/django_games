@@ -23,7 +23,7 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
     """ Database model for users in the system """
     username = models.CharField(max_length=255, unique=True)
     profile_picture = models.ImageField(upload_to='uploads/profile', null=True, blank=True)
-    is_staff = models.BooleanField(default=True)
+    is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
     
     # Add any additional fields you want here

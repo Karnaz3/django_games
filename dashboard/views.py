@@ -3,8 +3,6 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.views import View
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth import get_user_model
-from django.views.generic import ListView
-from django.contrib.auth.forms import UserCreationForm
 from userprofiles.models import UserProfile
 from .forms import *
 # Create your views here.
@@ -32,16 +30,16 @@ class LogoutView(View):
 
 class RegisterView(View):
     def get(self, request):
-        form = CustomUserCreationForm()
-        return render(request, 'register.html', {'form': form})
+        return render(request, 'register.html')
     
     def post(self, request):
-        form = CustomUserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('/')
-        else:
-            return render(request, 'register.html', {'form': form})
+        username = request.POST["username"]
+        password = request.POST["password"]
+        user = UserProfile.objects.create_user(username=username)
+        user.set_password(password)
+        user.save()
+        return redirect('/')
+    
         
 class ForgotPasswordView(View):
     def get(self, request):
@@ -72,17 +70,11 @@ class ProfileView(View):
         
 
 
-class UserListView(ListView):
-    model = get_user_model()
-    template_name = 'userlist.html'
-    context_object_name = 'users'
-    paginate_by = 10
-    ordering = ['username']
-
-    def get_queryset(self):
-        return get_user_model().objects.all()
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        # Add any additional context variables if needed
-        return context
+class UserListView(View):
+    def get(self, request):
+        users = UserProfile.objects.all()
+        context = { 
+            'users': users
+            }
+        return render(request, 'userlist.html', context)
+    
