@@ -75,7 +75,7 @@
                     <li>
                       <a href="#" class="text-gray-400 hover:text-white hover:bg-gray-800 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
                         <i class="fa-solid fa-building-user pt-1"></i>
-                        Registered Firms
+                        Play Games
                       </a>
                     </li>
 
@@ -151,119 +151,18 @@
                     Dashboard
                   </a>
                 </li>
-                 <!-- do1  nav -->
-
-                 <li class="relative">
-                  <a href="#" class="text-gray-400 hover:text-white hover:bg-gray-800 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
-                    <i class="fa-solid fa-file pt-1"></i>
-                    D01 Applications
-                  </a>
-                  <ul class="absolute w-full mt-2 hidden bg-white text-gray-700 rounded-md shadow-lg z-10">
-                    <!-- Dropdown menu items -->
-                    <li>
-                      <a href="/dashboard/applications/1" class="block px-4 py-2 hover:bg-gray-200">Paid By User</a>
-                    </li>
-                    <li>
-                      <a href="/dashboard/applications/2" class="block px-4 py-2 hover:bg-gray-200">Paid By SajiloKar</a>
-                    </li>
-                    <li>
-                      <a href="/dashboard/applications/3" class="block px-4 py-2 hover:bg-gray-200">Completed</a>
-                    </li>
-                    <li>
-                      <a href="/dashboard/applications/4" class="block px-4 py-2 hover:bg-gray-200">Failed</a>
-                    </li>
-                    <li>
-                      <a href="/dashboard/applications/5" class="block px-4 py-2 hover:bg-gray-200">Queries</a>
-                    </li>
-                   
-                  
-                  </ul>
-                </li>
-                <!-- end of d01  nav -->
-
-                                 <!-- do1  nav -->
-
-                                 <li class="relative">
-                                  <a href="#" class="text-gray-400 hover:text-white hover:bg-gray-800 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
-                                    <i class="fa-solid fa-file pt-1"></i>
-                                    Excise Applications
-                                  </a>
-                                  <ul class="absolute w-full mt-2 hidden bg-white text-gray-700 rounded-md shadow-lg z-10">
-                                    <!-- Dropdown menu items -->
-                                    <li>
-                                      <a href="/dashboard/excise/1" class="block px-4 py-2 hover:bg-gray-200">Paid By User</a>
-                                    </li>
-                                    <li>
-                                      <a href="/dashboard/excise/2" class="block px-4 py-2 hover:bg-gray-200">Paid By SajiloKar</a>
-                                    </li>
-                                    <li>
-                                      <a href="/dashboard/excise/3" class="block px-4 py-2 hover:bg-gray-200">Completed</a>
-                                    </li>
-                                    <li>
-                                      <a href="/dashboard/excise/4" class="block px-4 py-2 hover:bg-gray-200">Failed</a>
-                                    </li>
-                                    <li>
-                                      <a href="/dashboard/excise/5" class="block px-4 py-2 hover:bg-gray-200">Queries</a>
-                                    </li>
-                                   
-                                  
-                                  </ul>
-                                </li>
-                                <!-- end of d01  nav -->
-
-
-                <!-- issue with status  -->
-                
-                          
-
-                                 <li class="relative">
-                                  <a href="#" class="text-gray-400 hover:text-white hover:bg-gray-800 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
-                                    <i class="fa-solid fa-circle-xmark pt-1"></i>
-                                    Issues
-                                  </a>
-                                  <ul class="absolute w-full mt-2 hidden bg-white text-gray-700 rounded-md shadow-lg z-10">
-                                    <!-- Dropdown menu items -->
-                                    <li>
-                                      <a href="/dashboard/issuelist/1" class="block px-4 py-2 hover:bg-gray-200">Pending</a>
-                                    </li>
-                                    <li>
-                                      <a href="/dashboard/issuelist/2" class="block px-4 py-2 hover:bg-gray-200">Acknowledged</a>
-                                    </li>
-                                    <li>
-                                      <a href="/dashboard/issuelist/3" class="block px-4 py-2 hover:bg-gray-200">Waiting For User Data</a>
-                                    </li>
-                                    <li>
-                                      <a href="/dashboard/issuelist/4" class="block px-4 py-2 hover:bg-gray-200">Resolved</a>
-                                    </li>
-                                  
-                                  
-                                  </ul>
-                                </li>
-                          
-
-                <!-- end of issue with status -->
-
-
                 <li>
                   <a href="#" class="text-gray-400 hover:text-white hover:bg-gray-800 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
                     <i class="fa-solid fa-building-user pt-1"></i>
-                    Registered Firms
+                    Play Games
                   </a>
                 </li>
 
-                <li>
-                  <a href="#" class="text-gray-400 hover:text-white hover:bg-gray-800 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
-                    <i class="fa-solid fa-users pt-1"></i>
-                    Registered Users
-                  </a>
-                </li>
-         
                 {% if request.user.is_superuser %}
-
                             <li>
-                              <a href="#" class="text-gray-400 hover:text-white hover:bg-gray-800 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
+                              <a href="{%url "userlist"%}" class="text-gray-400 hover:text-white hover:bg-gray-800 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
                                 <i class="fa-solid fa-users pt-1"></i>
-                                Staffs
+                                Users
                               </a>
                             </li>
                             {% endif %}
@@ -275,7 +174,7 @@
                     <li class="relative">
                       <a href="#" class="text-gray-400 hover:text-white hover:bg-gray-800 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
                         <i class="fa-solid fa-pen-nib pt-1"></i>
-                        Content
+                        About Us
                       </a>
                       <ul class="absolute w-full mt-2 hidden bg-white text-gray-700 rounded-md shadow-lg z-10">
                         <!-- Dropdown menu items -->
@@ -331,25 +230,7 @@
                     </a>
                   </li> -->
 
-                  <!-- company act nav -->
-
-                  <li class="relative">
-                    <a href="#" class="text-gray-400 hover:text-white hover:bg-gray-800 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
-                      <i class="fa-solid fa-scale-balanced pt-1"></i>
-                      Company Acts
-                    </a>
-                    <ul class="absolute w-full mt-2 hidden bg-white text-gray-700 rounded-md shadow-lg z-10">
-                      <!-- Dropdown menu items -->
-                      <li>
-                        <a href="#" class="block px-4 py-2 hover:bg-gray-200">Chapters</a>
-                      </li>
-                      <li>
-                        <a href="#" class="block px-4 py-2 hover:bg-gray-200">section</a>
-                      </li>
-                     
-                    </ul>
-                  </li>
-                  <!-- end of companu act nav -->  
+                
                 </li>
                
               </ul>
@@ -415,8 +296,8 @@
               -->
               <div class="absolute right-0 z-10 mt-2.5 w-32 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 focus:outline-none hidden role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1" id="user-profile-menu">
                 <!-- Active: "bg-gray-50", Not Active: "" -->
-                <a href="#" class="block px-3 py-1 text-sm leading-6 text-gray-900" role="menuitem" tabindex="-1" id="user-menu-item-0">Your profile</a>
-                <a href="#" class="block px-3 py-1 text-sm leading-6 text-gray-900" role="menuitem" tabindex="-1" id="user-menu-item-1">Sign out</a>
+                <a href="{% url 'profile' %}" class="block px-3 py-1 text-sm leading-6 text-gray-900" role="menuitem" tabindex="-1" id="user-menu-item-0">Your profile</a>
+                <a href="{% url 'logout'%}" class="block px-3 py-1 text-sm leading-6 text-gray-900" role="menuitem" tabindex="-1" id="user-menu-item-1">Sign out</a>
               </div>
             </div>
           </div>
