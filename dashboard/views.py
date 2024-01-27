@@ -57,16 +57,21 @@ class DashboardView(View):
 
 class ProfileView(View):
     def get(self, request):
-        user = self.request.user
-        context = { 'user': user }
+        user = request.user
+        context = { 
+            'user': user 
+            }
+        print(user.profile_picture)
         return render(request, 'profile.html', context)
     
-    def post(self, request , *args, **kwargs):
-        user = self.request.user
-        user_form = ProfilePhotoForm(self.request.POST, self.request.FILES, instance=user)
+    def post(self, request):
+        user = request.user
+        user_form = ProfilePhotoForm(request.POST ,  request.FILES , instance=user)
         if user_form.is_valid():
             user_form.save()
             return redirect('/profile')
+        else:
+            return HttpResponse('Invalid Form')
         
 
 
@@ -78,3 +83,4 @@ class UserListView(View):
             }
         return render(request, 'userlist.html', context)
     
+
