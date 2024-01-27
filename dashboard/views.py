@@ -1,4 +1,5 @@
-from django.shortcuts import render , redirect
+from django.shortcuts import render , redirect , get_object_or_404 
+from django.urls import reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views import View
 from django.contrib.auth import authenticate, login, logout
@@ -69,7 +70,7 @@ class ProfileView(View):
         user_form = ProfilePhotoForm(request.POST ,  request.FILES , instance=user)
         if user_form.is_valid():
             user_form.save()
-            return redirect('/profile')
+            return redirect('/profile', {"user" : user})
         else:
             return HttpResponse('Invalid Form')
         
@@ -77,10 +78,49 @@ class ProfileView(View):
 
 class UserListView(View):
     def get(self, request):
-        users = UserProfile.objects.all()
-        context = { 
+        if request.user.is_superuser:
+            users = UserProfile.objects.all()
+        else:
+            users = UserProfile.objects.exclude(user=request.user)
+
+        context = {
             'users': users
-            }
+        }
         return render(request, 'userlist.html', context)
     
 
+
+class IncreasePointsView(View):
+    def post(self, request, user_id):
+        user = get_object_or_404(UserProfile, pk=user_id)
+        new_points = user.points + 1
+
+        # Validate points
+        if new_points <= 10:
+            user.points = new_points
+            user.save()
+        else:
+            error_message = "Error: Points cannot exceed 10."
+            return self.error_response(request, error_message)
+
+        return redirect(reverse('userlist'))
+
+    def error_response(self, request, error_message):
+        # Add error message to context and render inline error message
+        users = UserProfile.objects.all()  # You may need to adjust this query based on your actual model
+        return render(request, 'userlist.html', {'users': users, 'error_message': error_message})
+
+class DecreasePointsView(View):
+    def post(self, request, user_id):
+        user = get_object_or_404(UserProfile, pk=user_id)
+        new_points = user.points - 1
+
+        # Validate points
+        if new_points >= 0:
+            user.points = new_points
+            user.save()
+        else:
+            error_message = "Error: Points cannot be less than 0."
+            return IncreasePointsView().error_response(request, error_message)
+
+        return redirect(reverse('userlist'))

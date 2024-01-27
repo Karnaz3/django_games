@@ -13,4 +13,6 @@ urlpatterns = [
     path('dashboard/', DashboardView.as_view(), name='dashboard'),
     path('profile/', ProfileView.as_view(), name='profile'),
     path('userlist/', UserListView.as_view(), name='userlist'),
+    path('increase_points/<int:user_id>/', IncreasePointsView.as_view(), name='increase_points'),
+    path('decrease_points/<int:user_id>/', DecreasePointsView.as_view(), name='decrease_points'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

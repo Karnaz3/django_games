@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
+from django.core.validators import MaxValueValidator, MinValueValidator
+
 
 class UserProfileManager(BaseUserManager):
     def create_user(self, username, password=None, **extra_fields):
@@ -25,6 +27,13 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
     profile_picture = models.ImageField(upload_to='uploads/profile', null=True, blank=True)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
+    points = models.IntegerField(
+        default=0,
+        validators=[
+            MaxValueValidator(10),
+            MinValueValidator(0)
+        ]
+    )
     
     # Add any additional fields you want here
 
