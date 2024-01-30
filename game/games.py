@@ -1,6 +1,6 @@
 import random
 
-class SPR:
+class SPR_game:
     def __init__(self):
         self.vals = {
             0: "scissor",
@@ -22,10 +22,10 @@ class SPR:
             return "draw"
     
         elif self.beats[computer_choice] == user_choice:
-            return "Computer"
+            return "computer"
 
         elif self.beats[user_choice] == computer_choice:
-            return "User"
+            return "user"
     
         return None
         
@@ -36,11 +36,11 @@ class SPR:
         return {
             "user_choice" : user_choice,
             "computer_choice": computer_choice,
-            "Winner": self.check_winner(computer_choice, user_choice)
+            "winner": self.check_winner(computer_choice, user_choice)
         }
         
 
-class HeadTails:
+class HeadTails_game:
     def __init__(self):
         self.head_tails = {
             0:"head",
@@ -55,13 +55,13 @@ class HeadTails:
     
 
 if __name__ == '__main__':
-    obj = SPR()
+    obj = SPR_game()
     user_choice = "scissor"
 
     result = obj.execute(user_choice)
     print(result)
 
 
-    head_tail_obj = HeadTails()
+    head_tail_obj = HeadTails_game()
     print(head_tail_obj.execute())
 

@@ -2,7 +2,7 @@
 {% block container %}
     <h1>Scissor Paper Rock Game</h1>
     
-    <form action="/play_spr" method="post">
+    <form method="post">
         {% csrf_token %}
         <label for="gambling_points">Gambling Points:</label>
         <input type="number" id="gambling_points" name="gambling_points" required>
@@ -22,6 +22,11 @@
             <p>User Choice: {{ result.user_choice }}</p>
             <p>Computer Choice: {{ result.computer_choice }}</p>
             <p>Winner: {{ result.winner }}</p>
+        {% endif %}
+    </div>
+    <div >
+        {% if error %}
+            <div class="text-red-500">{{ error }}</div>
         {% endif %}
     </div>
 {% endblock %}

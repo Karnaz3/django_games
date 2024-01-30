@@ -6,5 +6,5 @@ class SPR(models.Model):
     winner = models.CharField(max_length=10)
 
 class HeadTails(models.Model):
+    user_choice = models.CharField(max_length=10)
     result = models.CharField(max_length=10)
-

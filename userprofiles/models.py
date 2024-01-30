@@ -50,7 +50,7 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
             spr_game = SPR()
             result = spr_game.execute(user_choice)
 
-            self.points += 1 if result['winner'] == 'User' else 0
+            self.points += 1 if result['winner'] == 'User' else self.points -1
 
             self.last_spr_user_choice = result['user_choice']
             self.last_spr_computer_choice = result['computer_choice']
@@ -64,7 +64,7 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
         ht_game = HeadTails()
         result = ht_game.execute()
 
-        self.points += 1 if result == 'head' else 0
+        self.points += 1 if result == 'head' else self.points -1    
 
         self.last_ht_result = result
 

@@ -18,7 +18,15 @@
     
     <div id="result">
         {% if result %}
-            <p>Result: {{ result.result }}</p>
+            <p>Result: {{ result }}</p>
         {% endif %}
     </div>
+    
+    <div >
+        {% if error %}
+            <div class="text-red-500">{{ error }}</div>
+        {% endif %}
+    </div>
+
+    
 {% endblock %}
