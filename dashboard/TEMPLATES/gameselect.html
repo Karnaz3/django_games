@@ -1,23 +1,23 @@
 {% extends "base.html" %}
 {% block container %}
 
-<div class="flex flex-col items-center justify-start h-screen">
-    <div class="mb-4 pt-10 px-8 mx-4 rounded-3xl bg-gray-100 border-4 border-green-400">
-        <div class="flex items-center h-10 intro-y justify-center"> 
-            <h2 class="mr-5 text-lg font-medium truncate pb-8">Game Select</h2>
+<div class="flex flex-col items-center justify-start h-screen bg-gradient-to-b from-green-100 to-green-200">
+    <div class="mb-4 pt-10 px-8 mx-4 rounded-3xl bg-white border-4 border-green-400 shadow-lg">
+        <div class="flex items-center h-16 justify-center bg-green-400 rounded-t-3xl">
+            <h2 class="text-2xl font-bold text-white">Game Select</h2>
         </div>
-        <div class="flex justify-center">
-            <div class="flex">
-                <div class="mr-4 flex flex-col items-center">
-                    <img class="h-[150px] w-[150px] object-cover border-4 border-green-400"
+        <div class="flex justify-center py-8">
+            <div class="flex space-x-8">
+                <div class="flex flex-col items-center">
+                    <img class="h-40 w-40 object-cover rounded-full border-4 border-green-400"
                         src="https://hips.hearstapps.com/hmg-prod/images/people-playing-paper-rock-scissors-royalty-free-illustration-1583269312.jpg"
-                        alt="">
-                    <b><a href="{%url "spr"%}">Rock Papers</a></b>
+                        alt="Rock Papers">
+                    <b class="mt-4 text-lg font-semibold"><a href="{% url "spr" %}" class="text-green-500 hover:underline">Rock Papers</a></b>
                 </div>
                 <div class="flex flex-col items-center">
-                    <img class="h-[150px] w-[150px] object-cover border-4 border-green-400"
-                        src="https://nationaltoday.com/wp-content/uploads/2021/06/Flip-A-Coin-Day-1200x834.jpg" alt="">
-                    <b><a href="{%url "headtails"%}">Coin Toss</a></b>
+                    <img class="h-40 w-40 object-cover rounded-full border-4 border-green-400"
+                        src="https://nationaltoday.com/wp-content/uploads/2021/06/Flip-A-Coin-Day-1200x834.jpg" alt="Coin Toss">
+                    <b class="mt-4 text-lg font-semibold"><a href="{% url "headtails" %}" class="text-green-500 hover:underline">Coin Toss</a></b>
                 </div>
             </div>
         </div>

@@ -1,23 +1,28 @@
 {% extends "base.html" %}
 {% block container %}
 
-<div class="mb-4 pb-10 pt-10 px-8 mx-4 rounded-3xl bg-gray-100 border-4 border-green-400">
-    <div class="flex items-center h-10 intro-y">
-        <h2 class="mr-5 text-lg font-medium truncate pb-8">Profile</h2>
+<div class="mb-8 p-8 mx-4 rounded-3xl bg-gray-100 border-4 border-green-400">
+    <div class="flex items-center h-14 intro-y">
+        <h2 class="mr-5 text-2xl font-semibold text-green-600">Profile</h2>
     </div>
-<div class="flex justify-center">
-    <div class="">
-        <img class="hidden h-[150px] w-[150px] rounded-full sm:block object-cover mr-2 border-4 border-green-400"
-            src="{% if user.profile_picture %} {{user.profile_picture.url}}{%endif%}" alt=""><h2>currently logged in as :</h2><b>{{user.username}}</b>
-            <form action="" method="post" enctype="multipart/form-data">
-                <i>Change your profile picture: </i>
+    <div class="flex justify-center items-center">
+        <div class="text-center">
+            <img class="h-[150px] w-[150px] rounded-full object-cover mb-4 border-4 border-green-400"
+                src="{% if user.profile_picture %} {{ user.profile_picture.url }}{% endif %}" alt="">
+            <p class="text-gray-700 text-lg mb-2">Currently logged in as:</p>
+            <p class="text-xl font-bold mb-4">{{ user.username }}</p>
+            <form action="" method="post" enctype="multipart/form-data" class="mb-4">
+                <label for="img" class="text-green-600 font-semibold block mb-2">Change your profile picture:</label>
                 {% csrf_token %}
-                <input class="mt-5" type="file" id="img" name="profile_picture" accept="image/*">
-                <button type="submit"><b class="inline-flex justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Upload</b></button>
+                <input type="file" id="img" name="profile_picture" accept="image/*"
+                    class="mb-2 p-2 border rounded-md border-green-400 focus:outline-none focus:border-green-600">
+                <button type="submit"
+                    class="inline-flex justify-center items-center rounded-md bg-green-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus:outline-none focus:ring focus:border-green-300">
+                    Upload
+                </button>
             </form>
+        </div>
     </div>
-</div>    
-
 </div>
 
 {% endblock %}

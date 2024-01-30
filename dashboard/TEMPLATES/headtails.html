@@ -1,32 +1,95 @@
 {% extends "base.html" %}
 {% block container %}
-    <h1>Heads and Tails Game</h1>
-    
-    <form action="{% url 'headtails' %}" method="post">
-        {% csrf_token %}
-        <label for="gambling_points">Gambling Points:</label>
-        <input type="number" id="gambling_points" name="gambling_points" required>
-        
-        <label for="ht_choice">Choose Heads or Tails:</label>
-        <select id="ht_choice" name="ht_choice" required>
-            <option value="head">Heads</option>
-            <option value="tail">Tails</option>
-        </select>
-        
-        <button type="submit">Play</button>
-    </form>
-    
-    <div id="result">
-        {% if result %}
-            <p>Result: {{ result }}</p>
-        {% endif %}
-    </div>
-    
-    <div >
-        {% if error %}
-            <div class="text-red-500">{{ error }}</div>
-        {% endif %}
-    </div>
+    <style>
+        /* Add some basic styling for a fancy look */
+        .fancy-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            background-color: #f2f2f2;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
 
-    
+        .fancy-header {
+            color: #3498db;
+            text-align: center;
+        }
+
+        .fancy-form {
+            margin-top: 20px;
+        }
+
+        .fancy-label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .fancy-input,
+        .fancy-select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .fancy-button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .fancy-button:hover {
+            background-color: #217dbb;
+        }
+
+        .fancy-result {
+            margin-top: 20px;
+        }
+
+        .result-text {
+            color: #27ae60;
+        }
+
+        .fancy-error {
+            margin-top: 20px;
+        }
+    </style>
+
+    <div class="fancy-container">
+        <h1 class="fancy-header">Heads and Tails Game</h1>
+        
+        <form action="{% url 'headtails' %}" method="post" class="fancy-form">
+            {% csrf_token %}
+            <label for="gambling_points" class="fancy-label">Gambling Points:</label>
+            <input type="number" id="gambling_points" name="gambling_points" required class="fancy-input">
+            
+            <label for="ht_choice" class="fancy-label">Choose Heads or Tails:</label>
+            <select id="ht_choice" name="ht_choice" required class="fancy-select">
+                <option value="head">Heads</option>
+                <option value="tail">Tails</option>
+            </select>
+            
+            <button type="submit" class="fancy-button">Play</button>
+        </form>
+        
+        <div id="result" class="fancy-result">
+            {% if result %}
+                <p class="result-text">Result: {{ result }}</p>
+            {% endif %}
+        </div>
+        
+        <div class="fancy-error">
+            {% if error %}
+                <div class="text-red-500">{{ error }}</div>
+            {% endif %}
+        </div>
+    </div>
 {% endblock %}
