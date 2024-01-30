@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 from dashboard.views import *
+from game.views import *
 from django.conf import settings
 from django.conf.urls.static import static 
 
@@ -15,4 +16,7 @@ urlpatterns = [
     path('userlist/', UserListView.as_view(), name='userlist'),
     path('increase_points/<int:user_id>/', IncreasePointsView.as_view(), name='increase_points'),
     path('decrease_points/<int:user_id>/', DecreasePointsView.as_view(), name='decrease_points'),
+    path('games/', GameSelectView.as_view(), name='games'),
+    path('spr/', SPRView.as_view(), name='spr'),
+    path('headtails/', HeadTailsView.as_view(), name='headtails'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

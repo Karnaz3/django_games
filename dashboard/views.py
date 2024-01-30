@@ -78,11 +78,9 @@ class ProfileView(View):
 
 class UserListView(View):
     def get(self, request):
-        if request.user.is_superuser:
-            users = UserProfile.objects.all()
-        else:
-            users = UserProfile.objects.exclude(user=request.user)
 
+        # users = UserProfile.objects.filter(username=request.user)
+        users = UserProfile.objects.all()
         context = {
             'users': users
         }
@@ -124,3 +122,9 @@ class DecreasePointsView(View):
             return IncreasePointsView().error_response(request, error_message)
 
         return redirect(reverse('userlist'))
+    
+
+class GameSelectView(View):
+    def get(self, request):
+        return render(request, 'gameselect.html')
+    

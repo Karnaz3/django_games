@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block container %}
+    <h1>Scissor Paper Rock Game</h1>
+    
+    <form action="/play_spr" method="post">
+        {% csrf_token %}
+        <label for="gambling_points">Gambling Points:</label>
+        <input type="number" id="gambling_points" name="gambling_points" required>
+        
+        <label for="user_choice">Your Choice:</label>
+        <select id="user_choice" name="user_choice" required>
+            <option value="scissor">Scissor</option>
+            <option value="paper">Paper</option>
+            <option value="rock">Rock</option>
+        </select>
+        
+        <button type="submit">Play</button>
+    </form>
+    
+    <div id="result">
+        {% if result %}
+            <p>User Choice: {{ result.user_choice }}</p>
+            <p>Computer Choice: {{ result.computer_choice }}</p>
+            <p>Winner: {{ result.winner }}</p>
+        {% endif %}
+    </div>
+{% endblock %}

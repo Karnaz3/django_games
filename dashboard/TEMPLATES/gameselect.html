@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block container %}
+
+<div class="flex flex-col items-center justify-start h-screen">
+    <div class="mb-4 pt-10 px-8 mx-4 rounded-3xl bg-gray-100 border-4 border-green-400">
+        <div class="flex items-center h-10 intro-y justify-center"> 
+            <h2 class="mr-5 text-lg font-medium truncate pb-8">Game Select</h2>
+        </div>
+        <div class="flex justify-center">
+            <div class="flex">
+                <div class="mr-4 flex flex-col items-center">
+                    <img class="h-[150px] w-[150px] object-cover border-4 border-green-400"
+                        src="https://hips.hearstapps.com/hmg-prod/images/people-playing-paper-rock-scissors-royalty-free-illustration-1583269312.jpg"
+                        alt="">
+                    <b><a href="{%url "spr"%}">Rock Papers</a></b>
+                </div>
+                <div class="flex flex-col items-center">
+                    <img class="h-[150px] w-[150px] object-cover border-4 border-green-400"
+                        src="https://nationaltoday.com/wp-content/uploads/2021/06/Flip-A-Coin-Day-1200x834.jpg" alt="">
+                    <b><a href="{%url "headtails"%}">Coin Toss</a></b>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block container %}
+    <h1>Heads and Tails Game</h1>
+    
+    <form action="{% url 'headtails' %}" method="post">
+        {% csrf_token %}
+        <label for="gambling_points">Gambling Points:</label>
+        <input type="number" id="gambling_points" name="gambling_points" required>
+        
+        <label for="ht_choice">Choose Heads or Tails:</label>
+        <select id="ht_choice" name="ht_choice" required>
+            <option value="head">Heads</option>
+            <option value="tail">Tails</option>
+        </select>
+        
+        <button type="submit">Play</button>
+    </form>
+    
+    <div id="result">
+        {% if result %}
+            <p>Result: {{ result.result }}</p>
+        {% endif %}
+    </div>
+{% endblock %}

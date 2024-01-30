@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from django.core.validators import MaxValueValidator, MinValueValidator
+from game.models import SPR, HeadTails
 
 
 class UserProfileManager(BaseUserManager):
@@ -44,3 +45,29 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
     def __str__(self):
         """ Return string representation of our user """
         return self.username
+
+    def play_spr(self, user_choice):
+            spr_game = SPR()
+            result = spr_game.execute(user_choice)
+
+            self.points += 1 if result['winner'] == 'User' else 0
+
+            self.last_spr_user_choice = result['user_choice']
+            self.last_spr_computer_choice = result['computer_choice']
+            self.last_spr_winner = result['winner']
+
+            self.save()
+
+            return result
+
+    def play_ht(self):
+        ht_game = HeadTails()
+        result = ht_game.execute()
+
+        self.points += 1 if result == 'head' else 0
+
+        self.last_ht_result = result
+
+        self.save()
+
+        return result
