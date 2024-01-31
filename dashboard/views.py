@@ -128,3 +128,9 @@ class GameSelectView(View):
     def get(self, request):
         return render(request, 'gameselect.html')
     
+
+
+class FaqView(View):
+    def get(self, request):
+        return render(request, 'faq.html')
+    

@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Registration Page </title>
+  <title>Register</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -14,63 +14,48 @@
   <link rel="stylesheet" href="{% static 'dashboard/plugins/icheck-bootstrap/icheck-bootstrap.min.css' %}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{% static 'dashboard/dist/css/adminlte.min.css' %}">
+  <!-- Tailwind CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
 </head>
-<body class="hold-transition register-page">
-<div class="register-box">
-  <div class="card card-outline card-primary">
-    <div class="card-header text-center">
-      <a href="../../index2.html" class="h1"><b>Admin</b>LTE</a>
-    </div>
-    <div class="card-body">
-      <p class="login-box-msg">Register a new membership</p>
+<body class="bg-gray-900 font-sans">
 
-      <form action="" method="post">
-        {% csrf_token %}
-        
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="username" name= "username">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-user"></span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password" name = "password">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
-            </div>
-          </div>
-        </div>
-          </div>
-        </div>
-          <!-- /.col -->
-          <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Register</button>
-          </div>
-          <!-- /.col -->
-        </div>
-      </form>
-
-      <div class="social-auth-links text-center">
-        <a href="#" class="btn btn-block btn-primary">
-          <i class="fab fa-facebook mr-2"></i>
-          Sign up using Facebook
-        </a>
-        <a href="#" class="btn btn-block btn-danger">
-          <i class="fab fa-google-plus mr-2"></i>
-          Sign up using Google+
-        </a>
+<div class="min-h-screen flex items-center justify-center">
+  <div class="w-full max-w-md">
+    <div class="bg-white shadow-lg rounded-lg p-8">
+      <div class="text-center">
+        <a href="../../index2.html" class="text-3xl font-bold text-blue-500">Join the Game</a>
       </div>
 
-      <a href={%url "login"%} class="text-center">I already have a membership</a>
+      <p class="text-gray-700 text-center mt-4">Register a new membership</p>
+
+      <form class="mt-8" action="" method="post">
+        {% csrf_token %}
+        <div class="mb-4">
+          <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" placeholder="Username" name="username">
+        </div>
+        <div class="mb-4">
+          <input type="password" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" placeholder="Password" name="password">
+        </div>
+        <button type="submit" class="w-full bg-blue-500 text-white p-3 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Register</button>
+      </form>
+
+      <div class="mt-6">
+        <div class="flex justify-center space-x-4">
+          <a href="#" class="text-blue-500 hover:text-blue-600">
+            <i class="fab fa-facebook"></i> Sign up with Facebook
+          </a>
+          <a href="#" class="text-red-500 hover:text-red-600">
+            <i class="fab fa-google-plus"></i> Sign up with Google+
+          </a>
+        </div>
+      </div>
+
+      <div class="mt-4 text-center">
+        <p class="text-blue-500"><a href="{% url 'login' %}">I already have a membership</a></p>
+      </div>
     </div>
-    <!-- /.form-box -->
-  </div><!-- /.card -->
+  </div>
 </div>
-<!-- /.register-box -->
 
 <!-- jQuery -->
 <script src="../../plugins/jquery/jquery.min.js"></script>

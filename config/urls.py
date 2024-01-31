@@ -19,4 +19,5 @@ urlpatterns = [
     path('games/', GameSelectView.as_view(), name='games'),
     path('spr/', SPRView.as_view(), name='spr'),
     path('headtails/', HeadTailsView.as_view(), name='headtails'),
+    path("faq/", FaqView.as_view(), name="faq"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
