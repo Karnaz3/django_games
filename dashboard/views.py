@@ -134,3 +134,6 @@ class FaqView(View):
     def get(self, request):
         return render(request, 'faq.html')
     
+class InvoiceView(View):
+    def get(self, request):
+        return render(request, 'invoice.html')
